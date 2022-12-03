@@ -18,7 +18,7 @@ for line in file:
         
     # Draw
     if outcome == "Y":
-        # In a draw situation, we fetch from a dictonary to see which wee need to play to draw. Then we take the value and use
+        # In a draw situation, we fetch from a dictonary to see which we need to play to draw. Then we take the value and use
         # that as a key to find how many points to give.
         totalScore += (pointsToGive[tableDraw[opponent]] + 3)
     
