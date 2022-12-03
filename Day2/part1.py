@@ -18,3 +18,7 @@ for line in file:
         totalScore += 6
 
 print(totalScore)
+
+# X lose
+# Y draw
+# X win
