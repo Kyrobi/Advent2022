@@ -4,48 +4,30 @@
 
 # X lose
 # Y draw
-# Z win sdf
+# Z win
 file = open('input.txt', 'r')
 totalScore = 0
 pointsToGive = {"Z": 3, "Y": 2, "X": 1}
-
 tableDraw = {"A": "X", "B": "Y", "C": "Z"}
 tableWin = {"A": "Y", "B": "Z", "C": "X"}
 tableLose = {"A": "Z", "B":"X", "C": "Y"}
 
 for line in file:
     opponent = line[0] # The opponent's choice in the first column
-    outcome = line[2] # outcomer choice in the second column
-
+    outcome = line[2] # outcome in the second column
         
     # Draw
     if outcome == "Y":
-        if opponent == "A":
-            totalScore += (pointsToGive["X"] + 3)
-        elif opponent == "B":
-            totalScore += (pointsToGive["Y"] + 3)
-        elif opponent == "C":
-            totalScore += (pointsToGive["Z"] + 3)
-        continue
-        
+        # In a draw situation, we fetch from a dictonary to see which wee need to play to draw. Then we take the value and use
+        # that as a key to find how many points to give.
+        totalScore += (pointsToGive[tableDraw[opponent]] + 3)
+    
     # Lose
     elif outcome == "X":
-        if opponent == "A":
-            totalScore += (pointsToGive["Z"])
-        elif opponent == "B":
-            totalScore += (pointsToGive["X"])
-        elif opponent == "C":
-            totalScore += (pointsToGive["Y"])
-        continue
+        totalScore += (pointsToGive[tableLose[opponent]])
     
     # Win    
-    elif outcome == "Z":
-        if opponent == "A":
-            totalScore += (pointsToGive["Y"] + 6)
-        elif opponent == "B":
-            totalScore += (pointsToGive["Z"] + 6)
-        elif opponent == "C":
-            totalScore += (pointsToGive["X"] + 6)
-        continue
+    elif outcome == "Z":    
+        totalScore += (pointsToGive[tableWin[opponent]] + 6)
 
 print(totalScore)
