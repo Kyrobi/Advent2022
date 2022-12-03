@@ -10,7 +10,7 @@ totalScore = 0
 pointsToGive = {"Z": 3, "Y": 2, "X": 1}
 tableDraw = {"A": "X", "B": "Y", "C": "Z"}
 tableWin = {"A": "Y", "B": "Z", "C": "X"}
-tableLose = {"A": "Z", "B":"X", "C": "Y"}
+tableLose = {"A": "Z", "B": "X", "C": "Y"}
 
 for line in file:
     opponent = line[0] # The opponent's choice in the first column
